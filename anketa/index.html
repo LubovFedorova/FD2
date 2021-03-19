@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anketa</title>
+</head>
+<body>
+    <script>
+        function checkInformation (str) {
+         while (str === null || str === '' || str === undefined || isNaN(str) === false) {
+                str = prompt('Неверное значение. Повторите еще раз', '');
+            }
+            return str;
+        }
+        let surname = prompt('Введите фамилию','');
+        surname = checkInformation(surname);
+        let name = prompt('Введите имя', '');
+        name = checkInformation(name);
+        let middleName = prompt('Введите отчество', '');
+        middleName = checkInformation(middleName);
+        let age = parseInt(prompt('Введите возраст', '0'));
+        function checkAge (num) {
+            while (num === null || num === '' || num === undefined || isNaN(num) === true) {
+                num = prompt('Неверное значение. Повторите еще раз', '');
+            }
+            return num;
+        }
+        age = checkAge(age);
+        let male = confirm('Ваш пол - мужской?');
+
+        let ageInDays = age * 365;
+        let ageInFiveYears = age + 5;
+
+        let resultMale = (male === true )?'мужской':'женский';
+
+        function isPensioner(male, age) {
+            if (male === true) {
+               return (age >= 65) ? 'да':'нет';
+            } else {
+                return (age >= 63) ? 'да': 'нет';
+            }
+        }
+
+        alert(`ваше ФИО: ${surname} ${name} ${middleName} \nваш возраст в годах: ${age} \nваш возраст в днях: ${ageInDays} \nчерез пять лет Вам будет: ${ageInFiveYears} \nВаш пол: ${resultMale} \nВы на пенсии: ${isPensioner(male,age)}`);
+    
+        
+    </script>
+</body>
+</html>
